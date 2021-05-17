@@ -1,0 +1,7 @@
+discord.py==1.7.2
+io
+os
+asyncio
+aiohttps
+lxml
+bs4
