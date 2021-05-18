@@ -34,7 +34,9 @@ async def on_guild_remove(guild): #when the bot is removed from the guild
 @bot.command()
 @checks.is_admin()
 async def setprefix(ctx,prefix:str):
-    with open('prefixs.json','r+') as f:
+    with open('prefixs.json','r') as f:
         n = json.load(f)
     n[str(ctx.guild.id)] = prefix
+    with open("prefixs.json","w") as f:
+        json.dump(n,f)
     await ctx.reply(f"changed prefix in this guild to `{prefix}`")
