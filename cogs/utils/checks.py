@@ -1,6 +1,13 @@
 import discord
 from discord.ext import command
 
+async def check_guild_permissions(ctx, perms, *, check=all):
+    is_owner = await ctx.bot.is_owner(ctx.author)
+    if is_owner:
+        return True
+
+    if ctx.guild is None:
+        return False
 # These do not take channel overrides into account
 
 def is_mod():
